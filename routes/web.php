@@ -12,4 +12,8 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-
+use App\Http\Controllers\ApiController;
+Route::post('/api', [ApiController::class, 'store']);
+Route::get('/api/{user_id}',  [ApiController::class, 'show']);
+Route::put('/api/{user_id}',  [ApiController::class, 'update']);
+Route::delete('/api/{user_id}', [ApiController::class, 'destroy']);
