@@ -32,7 +32,7 @@ response
 Endpoint:https://hngx-stage-two-el3e.onrender.com/api/{user_id},
 Method : GET
 Request body
-Just pass the username as a parameter 
+include the user id in the url  
 eg
 https://hngx-stage-two-el3e.onrender.com/api/18
 
@@ -50,11 +50,11 @@ response:
 }
 
 
-3. Update a Specific Task by Name
+3. Update a Specific Task by id
 
 Endpoint: https://hngx-stage-two-el3e.onrender.com/api/18
 Method : PUT
-eg 
+
 eg
 https://hngx-stage-two-el3e.onrender.com/api/18
 
@@ -72,7 +72,7 @@ response:
 
 
 
-4. Delete a Specific User by Name
+4. Delete a Specific User by id
 
 Endpoint:https://hngx-stage-two-el3e.onrender.com/api/18
 Method: DELETE
