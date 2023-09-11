@@ -20,7 +20,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 
-Route::post('/user/create', [ApiController::class, 'store']);
-Route::get('/user/{name}',  [ApiController::class, 'show']);
-Route::put('/user/update',  [ApiController::class, 'update']);
-Route::delete('user/delete',[ApiController::class, 'destroy']);
+Route::post('/', [ApiController::class, 'store']);
+Route::get('/{user_id}',  [ApiController::class, 'show']);
+Route::put('/{user_id}',  [ApiController::class, 'update']);
+Route::delete('/{user_id}',[ApiController::class, 'destroy']);

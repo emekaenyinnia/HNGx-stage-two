@@ -12,16 +12,16 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-        //
+        // $this->app->bind('path.public', function() {
+        //     return base_path('public_html');
+        // });
     }
 
     /**
      * Bootstrap any application services.
      */
-    public function boot(UrlGenerator $url)
+    public function boot()
     {
-        if (env('APP_ENV') == 'production') {
-            $url->forceScheme('https');
-        }
+    
     }
 }
