@@ -14,15 +14,15 @@ class ApiController extends Controller
      */
     public function store(Request $request)
     {
-
         try {
-            $validate = $this->validate_request($request);
-            if ($validate->fails()) return $this->response_message('error', $validate->errors()->all()[0], 400);
-            // If validation was successful create user account
+            $validate = $this->validateRequest($request);
+            if ($validate->fails()) {
+                return $this->responseMessage('error', $validate->errors()->all()[0], 400);
+            }
             $user = User::create(['name' => $request->name]);
-            return $this->response_message('success', 'user created successfully ', 200, $user);
+            return $this->responseMessage('success', 'user created successfully ', 200, $user);
         } catch (\Throwable $th) {
-            return $this->response_message('error', $th->getMessage(), 500);
+            return $this->responseMessage('error', $th->getMessage(), 500);
         }
     }
 
@@ -33,12 +33,12 @@ class ApiController extends Controller
     {
         try {
             $user = User::where('id', '=', $request->user_id)->first();
-            // if no user found throw error 
-            if (!$user) return $this->response_message('error', 'no user found',  400);
-            // if user is found return a success message with user name 
-            return $this->response_message('success', 'user data retrieved successfully ',  200, $user);
+            if (!$user) {
+                return $this->responseMessage('error', 'no user found',  400);
+            }
+            return $this->responseMessage('success', 'user data retrieved successfully ',  200, $user);
         } catch (\Throwable $th) {
-            return $this->response_message('error', $th->getMessage(),  500);
+            return $this->responseMessage('error', $th->getMessage(),  500);
         }
     }
 
@@ -48,13 +48,14 @@ class ApiController extends Controller
      */
     public function update(Request $request)
     {
-         try {
-            $validate = $this->validate_request_for_update($request);
-            if ($validate->fails()) return $this->response_message('error', $validate->errors()->all(),  400);
-            // If validation was successful create user account
-            return $this->update_user_details($request);
+        try {
+            $validate = $this->validateRequest($request);
+            if ($validate->fails()) {
+                return $this->responseMessage('error', $validate->errors()->all(),  400);
+            }
+            return $this->updateUserDetails($request);
         } catch (\Throwable $th) {
-            return $this->response_message('error', $th->getMessage(),  500);
+            return $this->responseMessage('error', $th->getMessage(),  500);
         }
     }
 
@@ -63,56 +64,43 @@ class ApiController extends Controller
      */
     public function destroy(Request $request)
     {
-        
         try {
-            // If validation was successful create user account
             $user = User::where('id', '=', $request->user_id)->first();
-            if (!$user)  return $this->response_message('error', 'This user is not found',  400);
+            if (!$user) {
+                return $this->responseMessage('error', 'This user is not found',  400);
+            }
             $user->delete();
-            return $this->response_message('success', 'your account was deleted successfully',  200);
+            return $this->responseMessage('success', 'your account was deleted successfully',  200);
         } catch (\Throwable $th) {
-            // If there's an error in creating the new user throw server Error
-            return $this->response_message('error', $th->getMessage(),  500);
+            return $this->responseMessage('error', $th->getMessage(),  500);
         }
     }
 
 
-    private function update_user_details($request)
+    private function updateUserDetails($request)
     {
-
         $user = User::where('id', '=', $request->user_id)->first();
-        if (!$user)  return $this->response_message('error', 'This user is not found ' . $request->old_name,  400);
+        if (!$user) {
+            return $this->responseMessage('error', 'This user is not found ' . $request->old_name,  400);
+        }
         $user->update(['name' => $request->name,]);
-        return $this->response_message('success', 'user name updated successfully ',  200);
+        return $this->responseMessage('success', 'user name updated successfully ',  200);
     }
 
 
 
-    private function validate_request(Request $request)
+    private function validateRequest(Request $request)
     {
         return Validator::make($request->all(), ['name' => 'required|string|unique:users',]);
     }
 
-    private function validate_request_for_update(Request $request)
-    {
-        return Validator::make($request->all(), [
-            'name' => 'required|string',
-        ]);
-    }
-
-    private function response_message($status, $message, $status_code, $data = null)
+    private function responseMessage($status, $message, $status_code, $data = null)
     {
         if ($data == null) {
-            return response()->json([
-                'status' => $status,
-                'message' =>  $message,
-                'status_code' => $status_code
-            ]);
+            return response()->json(['status' => $status, 'message' =>  $message, 'status_code' => $status_code]);
         } else {
             return response()->json([
-                'status' => $status,
-                'data' => $data,
-                'message' =>  $message,
+                'status' => $status, 'data' => $data, 'message' =>  $message,
                 'status_code' => $status_code
             ]);
         }
