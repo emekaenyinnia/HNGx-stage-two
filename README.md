@@ -93,12 +93,13 @@ php artisan serve
 
 The User Api is a RESFUL web service that allow a user to create, retrieve, update, and delete an account. It is straight forward and easy to consume
 
-!. Create a new User 
+!. Create a new User.
 Endpoint: Use an HTTP POST request to a dedicated user creation endpoint, 
-https://hngx-stage-two-el3e.onrender.com/api,
-Method : POST
-Request body 
+https://hngx-stage-two-el3e.onrender.com/api.
+Method : POST.
+Request body:
 Send user information in the request body in a structured format, usually JSON. Include the data name as a string.
+````
 example :
 {
     "name" : "david"
@@ -116,13 +117,14 @@ response
     "message": "account created successfully ",
     "status_code": 200
 }
+````
 
-
-2. Get a Specific User by Name
-Endpoint:https://hngx-stage-two-el3e.onrender.com/api/{user_id},
-Method : GET
-Request body
+2. Get a Specific User by Name.
+Endpoint:https://hngx-stage-two-el3e.onrender.com/api/{user_id}.
+Method : GET.
+Request body:
 include the user id in the url 
+```
 eg
 https://hngx-stage-two-el3e.onrender.com/api/18
 
@@ -139,12 +141,13 @@ response:
     "status_code": 200
 }
 
+```
 
-3. Update a Specific Task by id
+3. Update a Specific Task by id.
 
-Endpoint: https://hngx-stage-two-el3e.onrender.com/api/18
-Method : PUT
-
+Endpoint: https://hngx-stage-two-el3e.onrender.com/api/18.
+Method : PUT.
+```
 eg
 https://hngx-stage-two-el3e.onrender.com/api/18
 
@@ -159,13 +162,15 @@ response:
     "message": "user name updated successfully ",
     "status_code": 200
 }
+```
 
 
+4. Delete a Specific User by id.
 
-4. Delete a Specific User by id
+Endpoint:https://hngx-stage-two-el3e.onrender.com/api/18.
+Method: DELETE.
 
-Endpoint:https://hngx-stage-two-el3e.onrender.com/api/18
-Method: DELETE
+```
 eg
 https://hngx-stage-two-el3e.onrender.com/api/18
 
@@ -175,3 +180,5 @@ Response:
     "message": "your account was deleted successfully",
     "status_code": 200
 }
+
+```
