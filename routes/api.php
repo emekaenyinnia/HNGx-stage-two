@@ -20,7 +20,7 @@ use App\Http\Controllers\ApiController;
 // });
 
 
-// Route::post('/', [ApiController::class, 'store']);
-// Route::get('/{user_id}',  [ApiController::class, 'show']);
-// Route::put('/{user_id}',  [ApiController::class, 'update']);
-// Route::delete('/{user_id}',[ApiController::class, 'destroy']);
+Route::post('/', [ApiController::class, 'store']);
+Route::get('/{user_id}',  [ApiController::class, 'show']);
+Route::put('/{user_id}',  [ApiController::class, 'update']);
+Route::delete('/{user_id}',[ApiController::class, 'destroy']);
