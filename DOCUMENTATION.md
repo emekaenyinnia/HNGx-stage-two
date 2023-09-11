@@ -8,7 +8,9 @@ Endpoint: Use an HTTP POST request to a dedicated user creation endpoint,
 https://hngx-stage-two-el3e.onrender.com/api.
 Method : POST.
 Request body:
-Send user information in the request body in a structured format, usually JSON. Include the data name as a string.
+
+> Send user information in the request body in a structured format, usually JSON. Include the data name as a string.
+
 ````
 example :
 {
@@ -29,7 +31,8 @@ response
 }
 ````
 
-2. Get a Specific User by Name.
+2. Get a Specific User by id.
+
 Endpoint:https://hngx-stage-two-el3e.onrender.com/api/{user_id}.
 Method : GET.
 Request body:
