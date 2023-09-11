@@ -1,10 +1,11 @@
-Introduction:
+
+# Introduction for testing the api:
 
 The User Api is a RESFUL web service that allow a user to create, retrieve, update, and delete an account. It is straight forward and easy to consume
 
 !. Create a new User 
 Endpoint: Use an HTTP POST request to a dedicated user creation endpoint, 
-localhost:8000/api/user/create,
+https://hngx-stage-two-el3e.onrender.com/api,
 Method : POST
 Request body 
 Send user information in the request body in a structured format, usually JSON. Include the data name as a string.
@@ -28,12 +29,12 @@ response
 
 
 2. Get a Specific User by Name
-Endpoint:'localhost:8000/api/user/{name}',
+Endpoint:https://hngx-stage-two-el3e.onrender.com/api/{user_id},
 Method : GET
 Request body
 Just pass the username as a parameter 
 eg
-localhost:8000/api/user/{name}
+https://hngx-stage-two-el3e.onrender.com/api/18
 
 response:
 {
@@ -51,12 +52,15 @@ response:
 
 3. Update a Specific Task by Name
 
-Endpoint: localhost:8000/api/user/update
+Endpoint: https://hngx-stage-two-el3e.onrender.com/api/18
 Method : PUT
+eg 
+eg
+https://hngx-stage-two-el3e.onrender.com/api/18
+
 Request Body:
 {
-    "old_name" : "emeka",
-    "new_name" : "david"
+    "name" : "emeka",
 }
 
 response:
@@ -70,12 +74,10 @@ response:
 
 4. Delete a Specific User by Name
 
-Endpoint: localhost:8000/api/user/Delete
+Endpoint:https://hngx-stage-two-el3e.onrender.com/api/18
 Method: DELETE
-Response body:
-{
-    "name" : "david"
-} 
+eg
+https://hngx-stage-two-el3e.onrender.com/api/18
 
 Response:
 {
