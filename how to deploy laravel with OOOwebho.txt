@@ -1,9 +1,0 @@
-how to deploy laravel with OOOwebhost 
-
-https://youtu.be/Ci2fxvxP8fg
-
-
-
-error for php version
-Go to your side bar to website settings / general 
-update php version

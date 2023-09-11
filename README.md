@@ -95,7 +95,7 @@ The User Api is a RESFUL web service that allow a user to create, retrieve, upda
 
 !. Create a new User 
 Endpoint: Use an HTTP POST request to a dedicated user creation endpoint, 
-https://hngx-stage.000webhostapp.com/api,
+https://hngx-stage-two-el3e.onrender.com/api,
 Method : POST
 Request body 
 Send user information in the request body in a structured format, usually JSON. Include the data name as a string.
@@ -119,12 +119,12 @@ response
 
 
 2. Get a Specific User by Name
-Endpoint: https://hngx-stage.000webhostapp.com/api/{user_id},
+Endpoint:https://hngx-stage-two-el3e.onrender.com/api/{user_id},
 Method : GET
 Request body
 Just pass the username as a parameter 
 eg
-https://hngx-stage.000webhostapp.com/api/18
+https://hngx-stage-two-el3e.onrender.com/api/18
 
 response:
 {
@@ -142,11 +142,11 @@ response:
 
 3. Update a Specific Task by Name
 
-Endpoint:  https://hngx-stage.000webhostapp.com/api/18
+Endpoint: https://hngx-stage-two-el3e.onrender.com/api/18
 Method : PUT
 eg 
 eg
-https://hngx-stage.000webhostapp.com/api/18
+https://hngx-stage-two-el3e.onrender.com/api/18
 
 Request Body:
 {
@@ -164,10 +164,10 @@ response:
 
 4. Delete a Specific User by Name
 
-Endpoint: https://hngx-stage.000webhostapp.com/api/18
+Endpoint:https://hngx-stage-two-el3e.onrender.com/api/18
 Method: DELETE
 eg
-https://hngx-stage.000webhostapp.com/api/18
+https://hngx-stage-two-el3e.onrender.com/api/18
 
 Response:
 {
